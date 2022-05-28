@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决pip下载python包很慢的问题</title>
+      <link href="/2022/05/28/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BDpython%E5%8C%85%E5%BE%88%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/05/28/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BDpython%E5%8C%85%E5%BE%88%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>下载很慢是因为pip默认使用的是国外源，我们只需要在pip下载时将下载源切换为国内源即可（module替换为你要下载的包名）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.douban.com/simple module # 使用豆瓣源</span><br><span class="line"> </span><br><span class="line">pip install -i http://mirrors.aliyun.com/pypi/simple/ module  # 阿里云 </span><br><span class="line"> </span><br><span class="line">pip install -i  https://pypi.mirrors.ustc.edu.cn/simple/ module  # 中国科技大学 </span><br><span class="line"> </span><br><span class="line">pip install -i  http://pypi.douban.com/simple/ module  # 豆瓣(douban) </span><br><span class="line"> </span><br><span class="line">pip install -i  https://pypi.tuna.tsinghua.edu.cn/simple/ module  # 清华大学 </span><br><span class="line"> </span><br><span class="line">pip install -i  http://pypi.mirrors.ustc.edu.cn/simple/ module  # 中国科学技术大学</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pip </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/05/24/hello-world/"/>
       <url>/2022/05/24/hello-world/</url>
