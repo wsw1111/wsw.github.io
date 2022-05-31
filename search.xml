@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hexo博客搭建</title>
+      <link href="/2022/05/28/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <url>/2022/05/28/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><div class="note default flat"><p>Hexo 是一个基于NodeJS的静态博客网站生成器，使用Hexo不需开发，只要进行一些必要的配置即可生成一个个性化的博客网站，并且完美支持Markdown格式，非常方便。</p></div><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>windows可直接到<a href=https://git-scm.com/downloads>Git官网</a>自行下载安装，一路Next，安装完成后，需要将Git命令行工具添加到环境变量中，不在赘述。linux可通过终端命令行安装，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git</span><br></pre></td></tr></table></figure></p><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>windows可直接到<a href=https://nodejs.org/en/>Node.js官网</a>自行下载安装，一路Next,下载完成后需将.exe文件加入环境变量，不在赘述。</p><h3 id="linux安装Node-js"><a href="#linux安装Node-js" class="headerlink" title="linux安装Node.js"></a>linux安装Node.js</h3><p>在官网下载指定的包后上传至linux指定位置，然后进入系统目录，执行以下命令解压：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf node-v10.6.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure><br>通过建立软连接，将解压后的文件夹放入环境变量中，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/local/node-v10.6.0-linux-x64/nodejs/bin/npm /usr/local/bin/</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/node-v10.6.0-linux-x64/nodejs/bin/node /usr/local/bin/</span><br></pre></td></tr></table></figure><br>检查是否安装成功，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></p><h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>直接通过终端命令进行安装（安装完成后需将hexo.cmd所在目录加入环境变量中，否则执行hexo命令会报错，hexo.cmd默认安装在Node目录下）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><br>检查是否安装成功，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure><br>新建一个文件夹，来进行初始化项目：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure><br>安装依赖包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><br>生成静态文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure><br>启动服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><br>以上操作完成后即可通过浏览器输入网址<a href="http://localhost:4000访问项目，效果如下：">http://localhost:4000访问项目，效果如下：</a></p><p><img src="/images/hexo.png" alt=""></p><h3 id="将项目部署至github"><a href="#将项目部署至github" class="headerlink" title="将项目部署至github"></a>将项目部署至github</h3><p>首先右键打开git bash，然后输入下面命令配置git的相关信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure><br>输入下面命令生成ssh key：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure><br>创建完成后会在本地生成一个文件夹，在文件中找到id_rsa.pub，复制出来，默认目录为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\17621\.ssh</span><br></pre></td></tr></table></figure><br><div class="note success no-icon flat"><p>然后在github点击自己的头像，点击setting，再点击SSH and GPG keys，新建一个SSH，名字随便。将刚刚复制出来的id_rsa.pub添加进去，点击save，完成。</p></div><br><div class="note success no-icon flat"><p>在github新建一个项目，如下图所示：</p></div><br><img src="/images/new_repository.jpg" alt=""><br><div class="note success no-icon flat"><p>在Repository name中输入你的用户名.github.io，点击Create repository，即可完成项目的创建。<br>然后可通过page页面查看项目的地址，如下：</p></div><br><img src="/images/repository_url.jpg" alt=""></p><h3 id="将项目部署至GitHub-Pages"><a href="#将项目部署至GitHub-Pages" class="headerlink" title="将项目部署至GitHub Pages"></a>将项目部署至GitHub Pages</h3><div class="note info simple"><p>打开项目根目录下的_config.yml文件，拉到最后一行，添加如下内容：</p></div><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github.com/你的用户名/你的用户名.github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><div class="note info simple"><p>安装hexo-deployer-git，并在hexo中安装：</p></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><div class="note info simple"><p>然后在项目根目录下执行以下命令：</p></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><div class="note info simple"><p>项目生成后，可通过浏览器输入网址<a href="http://你的用户名.github.io访问项目，效果如下：">http://你的用户名.github.io访问项目，效果如下：</a></p></div><p><img src="/images/blog_index.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>解决pip下载python包很慢的问题</title>
+      <link href="/2022/05/28/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BDpython%E5%8C%85%E5%BE%88%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/05/28/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BDpython%E5%8C%85%E5%BE%88%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>pip是python的包管理工具，它可以让我们安装python的包，并且可以自动更新，但是pip是从pypi中下载文件的，pypi是python官方的第三方库的仓库， 用的是国外的服务器，下载速度自然很慢。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>我们只需要在pip下载时将下载源切换为国内源即可（module替换为你要下载的包名）</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.douban.com/simple module <span class="comment"># 使用豆瓣源</span></span><br><span class="line"> </span><br><span class="line">pip install -i http://mirrors.aliyun.com/pypi/simple/ module  <span class="comment"># 阿里云 </span></span><br><span class="line"> </span><br><span class="line">pip install -i  https://pypi.mirrors.ustc.edu.cn/simple/ module  <span class="comment"># 中国科技大学 </span></span><br><span class="line"> </span><br><span class="line">pip install -i  http://pypi.douban.com/simple/ module  <span class="comment"># 豆瓣(douban) </span></span><br><span class="line"> </span><br><span class="line">pip install -i  https://pypi.tuna.tsinghua.edu.cn/simple/ module  <span class="comment"># 清华大学 </span></span><br><span class="line"> </span><br><span class="line">pip install -i  http://pypi.mirrors.ustc.edu.cn/simple/ module  <span class="comment"># 中国科学技术大学</span></span><br></pre></td></tr></table></figure><p>如果你对软件测试有兴趣，可以添加微信一起交流。<br><img src="/images/wechat.jpg" width="50%" height="50%" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pip </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
