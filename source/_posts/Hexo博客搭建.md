@@ -12,57 +12,68 @@ Hexo 是一个基于NodeJS的静态博客网站生成器，使用Hexo不需开�
 {% endnote %}
 ## 环境搭建
 ### 安装git
-windows可直接到<a href=https://git-scm.com/downloads>Git官网</a>自行下载安装，一路Next，安装完成后，需要将Git命令行工具添加到环境变量中，不在赘述。linux可通过终端命令行安装，如下：
+- windows可直接到<a href=https://git-scm.com/downloads>Git官网</a>自行下载安装，一路Next，安装完成后，需要将Git命令行工具添加到环境变量中，不在赘述。linux可通过终端命令行安装，如下：
 ```bash
 yum -y install git
 ```
 ### 安装Node.js
-windows可直接到<a href=https://nodejs.org/en/>Node.js官网</a>自行下载安装，一路Next,下载完成后需将.exe文件加入环境变量，不在赘述。
+- windows可直接到<a href=https://nodejs.org/en/>Node.js官网</a>自行下载安装，一路Next,下载完成后需将.exe文件加入环境变量，不在赘述。
+
 ### linux安装Node.js
-在官网下载指定的包后上传至linux指定位置，然后进入系统目录，执行以下命令解压：
+- 在官网下载指定的包后上传至linux指定位置，然后进入系统目录，执行以下命令解压：
+
 ```bash
 tar -xvf node-v10.6.0-linux-x64.tar.xz
 ```
-通过建立软连接，将解压后的文件夹放入环境变量中，如下：
+- 通过建立软连接，将解压后的文件夹放入环境变量中，如下：
+
 ```bash
 ln -s /usr/local/node-v10.6.0-linux-x64/nodejs/bin/npm /usr/local/bin/
 ln -s /usr/local/node-v10.6.0-linux-x64/nodejs/bin/node /usr/local/bin/
 ```
-检查是否安装成功，如下：
+- 检查是否安装成功，如下：
+
 ```bash
 node -v
 ```
 ## 安装Hexo
-直接通过终端命令进行安装（安装完成后需将hexo.cmd所在目录加入环境变量中，否则执行hexo命令会报错，hexo.cmd默认安装在Node目录下）：
+- 直接通过终端命令进行安装（安装完成后需将hexo.cmd所在目录加入环境变量中，否则执行hexo命令会报错，hexo.cmd默认安装在Node目录下）：
+
 ```bash
 npm install -g hexo-cli
 ```
-检查是否安装成功，如下：
+- 检查是否安装成功，如下：
+
 ```bash
 hexo -v
 ```
-新建一个文件夹，来进行初始化项目：
+- 新建一个文件夹，来进行初始化项目：
+
 ```bash
 hexo init
 ```
-安装依赖包：
+- 安装依赖包：
+
 ```bash 
 npm install
 ```
-生成静态文件：
+- 生成静态文件：
+
 ```bash
 hexo generate
 ```
-启动服务：
+- 启动服务：
+
 ```bash 
 hexo server
 ```
-以上操作完成后即可通过浏览器输入网址http://localhost:4000访问项目，效果如下：
+- 以上操作完成后即可通过浏览器输入网址http://localhost:4000访问项目，效果如下：
 
 ![](/images/hexo.png)
 
 ### 将项目部署至github
-首先右键打开git bash，然后输入下面命令配置git的相关信息：
+- 首先右键打开git bash，然后输入下面命令配置git的相关信息：
+
 ```bash
 git config --global user.name "你的用户名"
 git config --global user.email "你的邮箱"
