@@ -92,10 +92,19 @@ rpm -qa | grep mysql
 use mysql;
 set password for 'admin'@'%'=password('123456');
 ```
+&ensp;<font size=3>**常用命令： **</font>
+```bash
+service mysqld start # 启动mysql服务
+service mysqld stop # 停止mysql服务
+service mysqld restart # 重启mysql服务
+service mysqld status # 查看mysql服务状态
+```
+
 {% tip info faa-horizontal animated-hover %}*此时，mysql就配置完成了，可尝试使用navicat测试连接* {% endtip %}
 
 # 补充
 
 {% tip info faa-horizontal animated-hover %}*如果是阿里云服务器需配置安全组，将3306端口开放即可，切记！* {% endtip %}
 {% tip info faa-horizontal animated-hover %}*如果上述方法都尝试了，还是连接不上，可查看防火墙端口是否开放。具体方法自行百度，不在赘述* {% endtip %}
+
 ---
