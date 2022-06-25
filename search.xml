@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>liunx安装redis</title>
+      <link href="/2022/06/25/liunx%E5%AE%89%E8%A3%85redis%E5%B9%B6%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"/>
+      <url>/2022/06/25/liunx%E5%AE%89%E8%A3%85redis%E5%B9%B6%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</url>
+      
+        <content type="html"><![CDATA[<h3 id="🎉-前言"><a href="#🎉-前言" class="headerlink" title="🎉 前言"></a>🎉 前言</h3><div class="note default flat"><p>Redis 是完全开源免费的，遵守 BSD 协议，是一个灵活的高性能 key-value 数据结构存储，可以用来作为数据库、缓存和消息队列。</p></div><h2 id="环境🍦"><a href="#环境🍦" class="headerlink" title="环境🍦"></a>环境🍦</h2><ul><li>redis版本：6.2.0</li><li>liunx版本：centos 7.4<h2 id="环境搭建-🚀"><a href="#环境搭建-🚀" class="headerlink" title="环境搭建 🚀"></a>环境搭建 🚀</h2></li></ul><ol><li>&ensp;<font size=3><strong>切到 /usr/local 目录下,下载redis</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-6.2.0.tar.gz</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>解压</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-6.2.0.tar.gz</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>进入解压目录</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> redis-6.2.0</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>编译安装</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>编译之后开始安装 🚀</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure></li><li><p>&ensp;<font size=3><strong>修改redis配置文件</strong></font></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/redis-6.2.0/redis.conf</span><br><span class="line">将daemonize no 改成daemonize <span class="built_in">yes</span>// 配置redis为后台启动</span><br><span class="line"><span class="built_in">bind</span> 127.0.0.1// redis 默认只允许本机访问,注掉</span><br><span class="line"><span class="built_in">bind</span> 0.0.0.0// 表示允许远程连接</span><br><span class="line">requirepass 123456   // 设置redis密码</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>&ensp;<font size=3><strong>启动redis并指定配置文件</strong></font></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./src/redis-server /usr/local/redis-6.2.0/redis.conf</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>客户端登录</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/redis-6.2.0/bin</span><br><span class="line">./redis-cli -h localhost -p 6379</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>开放端口</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=6379/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></li><li>&ensp;<font size=3><strong>关闭redis</strong></font><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown</span><br><span class="line">redis-cli -a 密码 shutdown// 设置了密码的话用这条命令关闭redis</span><br></pre></td></tr></table></figure></li></ol><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><div class="tip info faa-horizontal animated-hover"><p><em>如果是阿里云服务器需配置安全组，将6379端口开放即可，切记！</em> </p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> liunx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>liunx安装mysql并配置远程连接</title>
       <link href="/2022/06/19/liunx%E5%AE%89%E8%A3%85mysql-%E5%B9%B6%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"/>
       <url>/2022/06/19/liunx%E5%AE%89%E8%A3%85mysql-%E5%B9%B6%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/</url>
