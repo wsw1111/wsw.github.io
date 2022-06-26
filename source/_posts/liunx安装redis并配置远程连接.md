@@ -15,7 +15,7 @@ Redis 是完全开源免费的，遵守 BSD 协议，是一个灵活的高性能
 - redis版本：6.2.0
 - liunx版本：centos 7.4
 ## 环境搭建 🚀
-1. &ensp;<font size=3>**切到 /usr/local 目录下,下载redis**</font>
+1. &ensp;<font size=3>**进入/usr/local 目录下,下载`redis`**</font>
 ```bash
 wget http://download.redis.io/releases/redis-6.2.0.tar.gz
 ```
@@ -45,7 +45,7 @@ requirepass 123456   // 设置redis密码
 
 ```
 
-8. &ensp;<font size=3>**启动redis并指定配置文件**</font>
+8. &ensp;<font size=3>**启动`redis`并指定配置文件**</font>
 ```bash
 ./src/redis-server /usr/local/redis-6.2.0/redis.conf
 ```
@@ -54,7 +54,7 @@ requirepass 123456   // 设置redis密码
 cd /usr/local/redis-6.2.0/bin
 ./redis-cli -h localhost -p 6379
 ```
-10. &ensp;<font size=3>**开放端口**</font>
+10. &ensp;<font size=3>**开放`端口`**</font>
 ```bash
 firewall-cmd --zone=public --add-port=6379/tcp --permanent
 firewall-cmd --reload
